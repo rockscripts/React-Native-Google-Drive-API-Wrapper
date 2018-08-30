@@ -1,6 +1,6 @@
 {
   "name": "react-native-google-drive-api",
-  "version": "1.0.0",
+  "version": "1.0.10",
   "description": "Call Google Drive functions with this Api wrapper.",
   "main": "google_drive.js",
   "scripts": {
@@ -25,7 +25,5 @@
     "url": "https://github.com/rockscripts/React-Native-Google-Drive-API-Wrapper/issues"
   },
   "homepage": "https://github.com/rockscripts/React-Native-Google-Drive-API-Wrapper#readme",
-  "dependencies": {
-    "react-native-google-signin": "^1.0.0-rc3"
-  }
+  "dependencies": {}
 }

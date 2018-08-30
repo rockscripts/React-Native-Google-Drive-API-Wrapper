@@ -1,4 +1,5 @@
 import React from 'react';
+import { About } from './calls/about';
 
 class GoogleDrive extends React.Component 
   {
@@ -36,7 +37,8 @@ class GoogleDrive extends React.Component
       }
       return queryString;
     }
-    
+
+    //BG ABOUT
     _about(params)
     {
       console.log(this.endPoint+'about?key='+this.apiKey+this._urlParamsBuilder(params))
@@ -58,7 +60,9 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
-    
+    //EOF ABOUT
+
+    //BG FILES
     _listFilesInFolder(folderId)
     {
       //return fetch(this.endPoint+'files?q=%27'+folderId+'%27%20in%20parents%20and%20fullText%20contains%20%27XAU_EUR%27&key='+this.apiKey, {
@@ -102,6 +106,7 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
+
     _getFile(fileId)
     {
       return fetch(this.endPoint+'files/'+fileId+'&key='+this.apiKey, 
@@ -123,6 +128,7 @@ class GoogleDrive extends React.Component
         });
     }
   } 
+  //EOF FILES
 
   GoogleDrive = new GoogleDrive();
   export {GoogleDrive};

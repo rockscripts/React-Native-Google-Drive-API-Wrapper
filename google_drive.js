@@ -1,5 +1,4 @@
 import React from 'react';
-import { About } from './calls/about';
 
 class GoogleDrive extends React.Component 
   {
@@ -22,7 +21,7 @@ class GoogleDrive extends React.Component
       this.apiKey = key;
     }
 
-    _getAccessToken(key)
+    _getAccessToken()
     {
       return this.apiKey;
     }
@@ -38,10 +37,8 @@ class GoogleDrive extends React.Component
       return queryString;
     }
 
-    //BG ABOUT
     _about(params)
     {
-      console.log(this.endPoint+'about?key='+this.apiKey+this._urlParamsBuilder(params))
         return fetch(this.endPoint+'about?key='+this.apiKey+this._urlParamsBuilder(params), 
         {
           method: 'GET',        
@@ -60,9 +57,179 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
-    //EOF ABOUT
 
-    //BG FILES
+    _changes_getStartPageToken(params)
+    {
+        return fetch(this.endPoint+'changes/startPageToken?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          },
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _changes_list(params)
+    {
+        return fetch(this.endPoint+'changes?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          },
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+    
+    _changes_watch(params)
+    {
+        return fetch(this.endPoint+'changes/watch?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'POST',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+
+    _channels_create(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/comments?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'POST',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _channels_delete(fileId, commentId)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'?key='+this.apiKey, 
+        {
+          method: 'DELETE',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _channels_get(fileId, commentId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _channels_list(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/comments/?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _channels_update(fileId, commentId, content)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'?key='+this.apiKey, 
+        {
+          method: 'PATCH',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            content: content
+          })
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
     _listFilesInFolder(folderId)
     {
       //return fetch(this.endPoint+'files?q=%27'+folderId+'%27%20in%20parents%20and%20fullText%20contains%20%27XAU_EUR%27&key='+this.apiKey, {
@@ -106,7 +273,7 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
-
+    
     _getFile(fileId)
     {
       return fetch(this.endPoint+'files/'+fileId+'&key='+this.apiKey, 
@@ -128,7 +295,6 @@ class GoogleDrive extends React.Component
         });
     }
   } 
-  //EOF FILES
 
   GoogleDrive = new GoogleDrive();
   export {GoogleDrive};

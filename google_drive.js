@@ -1,3 +1,7 @@
+/*
+ Copyright 2018, Rockscripts / J.Alexander Grisales Rivera, All rights reserved. 
+
+*/
 import React from 'react';
 
 class GoogleDrive extends React.Component 
@@ -58,6 +62,7 @@ class GoogleDrive extends React.Component
         });
     }
 
+    //BEGIN CHANGES METHODS
     _changes_getStartPageToken(params)
     {
         return fetch(this.endPoint+'changes/startPageToken?key='+this.apiKey+this._urlParamsBuilder(params), 
@@ -120,8 +125,9 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
+    //ENDOF CHANGES METHODS
 
-
+    //BEGIN CHANNELS METHODS
     _channels_create(fileId, params)
     {
         return fetch(this.endPoint+'files/'+fileId+'/comments?key='+this.apiKey+this._urlParamsBuilder(params), 
@@ -229,8 +235,200 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
+    //ENDOF CHANNELS METHODS
 
-    _listFilesInFolder(folderId)
+
+    //BEGIN FILE METHODS
+    _files_list(params)
+    {
+        return fetch(this.endPoint+'files?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_get(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_update(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'PATCH',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_watch(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'POST',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_generateIds(params)
+    {
+        return fetch(this.endPoint+'files/generateIds?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        }) 
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_emptyTrash()
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/trash?key='+this.apiKey, 
+        {
+          method: 'DELETE',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_delete(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'DELETE',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_create(params)
+    {
+        return fetch(this.endPoint+'files?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'POST',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_copy(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/copy?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'POST',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_listFilesInFolder(folderId)
     {
       //return fetch(this.endPoint+'files?q=%27'+folderId+'%27%20in%20parents%20and%20fullText%20contains%20%27XAU_EUR%27&key='+this.apiKey, {
         return fetch(this.endPoint+'files?q=%27'+folderId+'%27%20in%20parents&key='+this.apiKey, {
@@ -251,7 +449,7 @@ class GoogleDrive extends React.Component
         });
     }
 
-    _listChildrenFolders(rootFolderID)
+    _files_listChildrenFolders(rootFolderID)
     {
       if(rootFolderID!=null)
           this.rootFolderID = rootFolderID;
@@ -273,27 +471,8 @@ class GoogleDrive extends React.Component
             return err;
         });
     }
+    //ENDOF FILE METHODS
     
-    _getFile(fileId)
-    {
-      return fetch(this.endPoint+'files/'+fileId+'&key='+this.apiKey, 
-        {
-          method: 'GET',        
-          headers:  
-          {
-            'Authorization': "Bearer " + this.apiKey,
-            'Content-Type': 'application/json'
-          }, 
-        }) 
-        .then(response => { return response.json();})
-        .then((responseData) => 
-        {
-          return responseData.files;
-        })
-        .catch(err => { 
-            return err;
-        });
-    }
   } 
 
   GoogleDrive = new GoogleDrive();

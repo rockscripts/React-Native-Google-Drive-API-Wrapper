@@ -14,7 +14,7 @@ Communicates with Google drive through this package.
   <pre>qp98lzgt8dcuhfvxdv25wlr6eu6zapaajy6h38vg3g</pre>
 
 </p>
-
+<h1>Import and call methods</h1>
 <h4>Import in your react native application.</h4>
 <pre>
 import {GoogleDrive} from 'react-native-google-drive-api';

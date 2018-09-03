@@ -1,6 +1,6 @@
 {
   "name": "react-native-google-drive-api",
-  "version": "1.0.17",
+  "version": "1.0.20",
   "description": "Call Google Drive functions with this Api wrapper.",
   "main": "google_drive.js",
   "scripts": {

@@ -472,7 +472,414 @@ class GoogleDrive extends React.Component
         });
     }
     //ENDOF FILE METHODS
+
+    //BEGIN PERMISSIONS METHODS
+    _permissions_create(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/permissions?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'POST',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
     
+    _permissions_update(fileId, permissionId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/permissions/'+permissionId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'PATCH',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_delete(fileId, permissionId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/permissions/'+permissionId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'DELETE',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_get(fileId, permissionId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/permissions/'+permissionId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+
+    _files_list(fileId, params)
+    {
+        return fetch(this.endPoint+'files/'+fileId+'/permissions?key='+this.apiKey+this._urlParamsBuilder(params), 
+        {
+          method: 'GET',        
+          headers:  
+          {
+            'Authorization': "Bearer " + this.apiKey,
+            'Content-Type': 'application/json'
+          }
+        }) 
+        .then(response => { return response.json(); })
+        .then((responseData) => 
+        {
+          return responseData;
+        })
+        .catch(err => { 
+            return err;
+        });
+    }
+    //ENDOF PERMISSIONS METHODS
+
+
+     //BEGIN REPLIES METHODS
+     _replies_create(fileId, commentId, params)
+     {
+         return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'/replies?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'POST',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+     
+     _replies_update(fileId, commentId, replyId, params)
+     {
+         return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'/replies/?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'PATCH',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+ 
+     _replies_delete(fileId, commentId, replyId, params)
+     {
+         return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'/replies/'+replyId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'DELETE',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+ 
+     _replies_get(fileId, commentId, replyId, params)
+     {
+         return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'/replies/'+replyId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'GET',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+ 
+     _replies_list(fileId, commentId, params)
+     {
+         return fetch(this.endPoint+'files/'+fileId+'/comments/'+commentId+'/replies?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'GET',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+     //ENDOF REPLIES METHODS
+    
+       //BEGIN REVISIONS METHODS
+       _revisions_update(fileId, revisionId, params)
+       {
+           return fetch(this.endPoint+'files/'+fileId+'/revisions/'+revisionId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+           {
+             method: 'PATCH',        
+             headers:  
+             {
+               'Authorization': "Bearer " + this.apiKey,
+               'Content-Type': 'application/json'
+             }
+           }) 
+           .then(response => { return response.json(); })
+           .then((responseData) => 
+           {
+             return responseData;
+           })
+           .catch(err => { 
+               return err;
+           });
+       }
+   
+       _revisions_delete(fileId, revisionId, params)
+       {
+           return fetch(this.endPoint+'files/'+fileId+'/revisions/'+revisionId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+           {
+             method: 'DELETE',        
+             headers:  
+             {
+               'Authorization': "Bearer " + this.apiKey,
+               'Content-Type': 'application/json'
+             }
+           }) 
+           .then(response => { return response.json(); })
+           .then((responseData) => 
+           {
+             return responseData;
+           })
+           .catch(err => { 
+               return err;
+           });
+       }
+   
+       _revisions_get(fileId, revisionId, params)
+       {
+           return fetch(this.endPoint+'files/'+fileId+'/revisions/'+revisionId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+           {
+             method: 'GET',        
+             headers:  
+             {
+               'Authorization': "Bearer " + this.apiKey,
+               'Content-Type': 'application/json'
+             }
+           }) 
+           .then(response => { return response.json(); })
+           .then((responseData) => 
+           {
+             return responseData;
+           })
+           .catch(err => { 
+               return err;
+           });
+       }
+   
+       _revisions_list(fileId, params)
+       {
+           return fetch(this.endPoint+'files/'+fileId+'/revisions?key='+this.apiKey+this._urlParamsBuilder(params), 
+           {
+             method: 'GET',        
+             headers:  
+             {
+               'Authorization': "Bearer " + this.apiKey,
+               'Content-Type': 'application/json'
+             }
+           }) 
+           .then(response => { return response.json(); })
+           .then((responseData) => 
+           {
+             return responseData;
+           })
+           .catch(err => { 
+               return err;
+           });
+       }
+       //ENDOF REVISIONS METHODS
+
+        //BEGIN TEAMDRIVES METHODS
+     _teamdrives_create(params)
+     {
+         return fetch(this.endPoint+'teamdrives?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'POST',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+     
+     _teamdrives_update(teamDriveId, params)
+     {
+         return fetch(this.endPoint+'teamdrives/'+teamDriveId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'PATCH',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+ 
+     _teamdrives_delete(teamDriveId, params)
+     {
+         return fetch(this.endPoint+'teamdrives/'+teamDriveId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'DELETE',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+ 
+     _teamdrives_get(teamDriveId, params)
+     {
+         return fetch(this.endPoint+'teamdrives/'+teamDriveId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'GET',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+ 
+     _teamdrives_list(teamDriveId, params)
+     {
+         return fetch(this.endPoint+'teamdrives/'+teamDriveId+'?key='+this.apiKey+this._urlParamsBuilder(params), 
+         {
+           method: 'GET',        
+           headers:  
+           {
+             'Authorization': "Bearer " + this.apiKey,
+             'Content-Type': 'application/json'
+           }
+         }) 
+         .then(response => { return response.json(); })
+         .then((responseData) => 
+         {
+           return responseData;
+         })
+         .catch(err => { 
+             return err;
+         });
+     }
+     //ENDOF TEAMDRIVES METHODS
   } 
 
   GoogleDrive = new GoogleDrive();

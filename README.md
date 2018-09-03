@@ -2,7 +2,13 @@
 <p>
 Communicates with Google drive through this package. 
 </p>
-<h1>Donate a teacup</h1>
+<h2 style='color:blue'>Give a donation and i will send full development manual.</h2>
+<h1><img src='images/patreon.png' style='width:50px'>Donate in Patreon</h1>
+<p>
+  <b>Tier:</b>
+  <pre><a href='https://bit.ly/2wzXPKQ'>https://bit.ly/2wzXPKQ</a></pre>
+</p>
+<h1><img src='images/bitcoin.png' style='width:50px'>Donate Some Crypto</h1>
 <p>
   <b>BITCOIN:</b>
   <pre>17nunWK3iF6vMav7aZV1s9jJTgNSBQiakr</pre>

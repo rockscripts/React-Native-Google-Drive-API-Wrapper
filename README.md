@@ -7,18 +7,32 @@ Communicates with Google drive through this package.
  <table>
    <tr>
      <td>
+<<<<<<< HEAD
        <img src='https://raw.githubusercontent.com/rockscripts/React-Native-Google-Drive-API-Wrapper/HEAD/images/1.png' width='250'>
      </td>
      <td>
        <img src='https://raw.githubusercontent.com/rockscripts/React-Native-Google-Drive-API-Wrapper/HEAD/images/2.png' width='250'>
+=======
+       <img src='images/1.png' width='250'>
+     </td>
+     <td>
+       <img src='images/2.png' width='250'>
+>>>>>>> 5b4327775b868c64fa647440df9f9ae0329caba3
      </td>
    </tr>
    <tr>
      <td>
+<<<<<<< HEAD
         <img src='https://raw.githubusercontent.com/rockscripts/React-Native-Google-Drive-API-Wrapper/HEAD/images/3.png' width='250'>
      </td>
      <td>
         <img src='https://raw.githubusercontent.com/rockscripts/React-Native-Google-Drive-API-Wrapper/HEAD/images/5.png' width='250'>
+=======
+        <img src='images/3.png' width='250'>
+     </td>
+     <td>
+        <img src='images/5.png' width='250'>
+>>>>>>> 5b4327775b868c64fa647440df9f9ae0329caba3
      </td>
      </tr>
    <table>

@@ -146,7 +146,7 @@ class GoogleDrive extends React.Component
         })
         .catch(err => { 
             return err;
-        });
+        }); 
     }
 
     _channels_delete(fileId, commentId)

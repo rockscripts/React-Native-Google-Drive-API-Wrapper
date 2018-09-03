@@ -43,8 +43,35 @@ GoogleDrive._about([{name:'fields',value:'user,storageQuota'}]).then((responseAb
 </pre> 
 <br>
 <h4>Changes</h4>
+<p>getStartPageToken</p>
 <pre>
-
+GoogleDrive._changes_getStartPageToken([]).then((responseStartPageToken)=>
+      { 
+          if(this.state.loaded==false)
+          {
+            this.setState({responseStartPageToken:responseStartPageToken,loaded:true})
+          }                  
+      }); 
+</pre>
+<p>list</p>
+<pre>
+GoogleDrive._changes_list([{'name':'pageToken','value':pageToken}]).then((responseList)=>
+      { 
+          if(this.state.loaded==false)
+          {
+            this.setState({responseList:responseList,loaded:true})
+          }                  
+      }); 
+</pre>
+<p>watch</p>
+<pre>
+GoogleDrive._changes_watch([{'name':'pageToken','value':pageToken}]).then((responseWatch)=>
+      { 
+          if(this.state.loaded==false)
+          {
+            this.setState({responseWatch:responseWatch,loaded:true})
+          }                  
+      }); 
 </pre>
 <br>
 <h4>Channels</h4>
